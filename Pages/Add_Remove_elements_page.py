@@ -1,0 +1,22 @@
+class AddRemoveElementsPage:
+    from selenium.webdriver.common.by import By
+
+    TITLE_TEXT = (By.CSS_SELECTOR, 'div h3')
+    ADD_ELEMENT_BUTTON = (By.CSS_SELECTOR, 'button[onclick="addElement()"]')
+    DELETE_BUTTON = (By.CSS_SELECTOR, 'button[onclick="deleteElement()"]')
+    # URL
+    URL = 'https://the-internet.herokuapp.com/add_remove_elements/'
+    def __init__(self, browser):
+        self.browser = browser
+    def loadPage(self):
+        self.browser.get(self.URL)
+    def clickAddButton(self):
+        self.browser.find_element(*self.ADD_ELEMENT_BUTTON).click()
+    def clickDelButton(self):
+        self.browser.find_element(*self.DELETE_BUTTON).click()
+    def getTitlePage(self):
+        return self.browser.find_element(*self.TITLE_TEXT).text
+    def isDeleteButtonDisplyed(self):
+        return self.browser.find_element(*self.DELETE_BUTTON).is_displayed()
+    def getNumberOfDelBotton(self):
+        return len(self.browser.find_elements(*self.DELETE_BUTTON))

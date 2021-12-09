@@ -1,4 +1,5 @@
-from Pages.Login_page import LoginPage
+from pages.Login_page import LoginPage
+from pages.Logout_page import LogoutPage
 from selenium.webdriver.common.keys import Keys
 from time import sleep
 
@@ -36,8 +37,34 @@ def test_flash_error_message_is_displayed(browser):
     login_page = LoginPage(browser)
     # load the page
     login_page.loadPage()
-    #input incorect username and see if a flash message apear
-    login_page.InputUsername()
+    #input incorrect username and see if a flash message appear
+    login_page.typeUsername("Ion")
     login_page.clickLoginButton()
     sleep(1)
     assert login_page.isFlashMessageDisplayed() == True, "Flash message is not displayed"
+def test_login_succesfully(browser):
+    login_page = LoginPage(browser)
+    logout_page = LogoutPage(browser)
+    # load the page
+    login_page.loadPage()
+    # input correct username and password
+    login_page.typeUsername("tomsmith")
+    login_page.typePassword("SuperSecretPassword!")
+    login_page.clickLoginButton()
+    # verify if login is succesfully, check title
+    assert logout_page.getTitlePage() == True, "The title is not correct"
+    sleep(1)
+def test_click_logout_button(browser):
+    login_page = LoginPage(browser)
+    logout_page = LogoutPage(browser)
+    # load the page
+    login_page.loadPage()
+    # input correct username and password
+    login_page.typeUsername("tomsmith")
+    login_page.typePassword("SuperSecretPassword!")
+    login_page.clickLoginButton()
+    sleep(2)
+    # click Logout button
+    logout_page.clickLogoutButton()
+
+    

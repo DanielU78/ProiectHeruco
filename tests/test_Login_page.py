@@ -52,7 +52,7 @@ def test_login_succesfully(browser):
     login_page.typePassword("SuperSecretPassword!")
     login_page.clickLoginButton()
     # verify if login is succesfully, check title
-    assert logout_page.getTitlePage() == True, "The title is not correct"
+    assert logout_page.getTitlePage() == 'Secure Area', "The title is not correct"
     sleep(1)
 def test_click_logout_button(browser):
     login_page = LoginPage(browser)

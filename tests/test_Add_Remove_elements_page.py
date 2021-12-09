@@ -1,5 +1,4 @@
 
-from selenium.webdriver.common.by import By
 from pages.Add_Remove_elements_page import AddRemoveElementsPage
 
 def test_page_is_correct(browser):

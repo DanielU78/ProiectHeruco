@@ -39,3 +39,4 @@ def test_page_is_correct(browser):
     # click Logout button
     logout_page.clickLogoutButton()
 
+

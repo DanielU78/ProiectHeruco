@@ -22,6 +22,11 @@ def test_page_is_correct(browser):
     # check if login button is displayed
     assert login_page.isLoginButtonDisplayed() == True, "Login button is not displayed"
     sleep(1)
+def test_login_failed_username(browser):
+    login_page = LoginPage(browser)
+    logout_page = LogoutPage(browser)
+    # load the page
+    login_page.loadPage()
     # input incorrect username and see if a flash message appear
     login_page.typeUsername("Ion")
     login_page.clickLoginButton()

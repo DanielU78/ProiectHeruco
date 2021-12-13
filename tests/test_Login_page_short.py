@@ -28,6 +28,11 @@ def test_page_is_correct(browser):
     sleep(1)
     assert login_page.isFlashMessageDisplayed() == True, "Flash message is not displayed"
     sleep(1)
+def test_login_succesfully(browser):
+    login_page = LoginPage(browser)
+    logout_page = LogoutPage(browser)
+    # load the page
+    login_page.loadPage()
     # input correct username and password
     login_page.typeUsername("tomsmith")
     login_page.typePassword("SuperSecretPassword!")
@@ -36,7 +41,6 @@ def test_page_is_correct(browser):
     # verify if login is succesfully, check title
     assert logout_page.getTitlePage() == 'Secure Area', "The title is not correct"
     sleep(2)
-    # click Logout button
-    logout_page.clickLogoutButton()
+
 
 

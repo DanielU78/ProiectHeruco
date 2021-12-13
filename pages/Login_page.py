@@ -3,13 +3,14 @@ class LoginPage:
     from selenium.webdriver.common.by import By
     TITLE_TEXT = (By.CSS_SELECTOR, 'div h2')
     DESCRIBE_TEXT = (By.CSS_SELECTOR, 'div>h4')
-    INPUT_USERNAME = (By.CSS_SELECTOR, '[id="username"]')
-    INPUT_PASSWORD = (By.CSS_SELECTOR, '[id="password"]')
+    INPUT_USERNAME = (By.ID, "username")
+    INPUT_PASSWORD = (By.ID, "password")
     LOGIN_BUTTON = (By.CSS_SELECTOR, 'button>i')
-    FLASH_MESSAGE = (By.CSS_SELECTOR, '[id="flash"]')
+    FLASH_MESSAGE = (By.ID, "flash")
 
     #URL
     URL = 'https://the-internet.herokuapp.com/login'
+
     def __init__(self, browser):
         self.browser = browser
     def loadPage(self):

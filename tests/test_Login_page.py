@@ -25,7 +25,7 @@ def test_input_password_is_displayed(browser):
     login_page = LoginPage(browser)
     # load the page
     login_page.loadPage()
-    # check if input password fied is displayed
+    # check if input password field is displayed
     assert login_page.isInputPasswordDisplayed() == True, "The password field is not displayed"
 def test_login_button_is_displayed(browser):
     login_page = LoginPage(browser)
@@ -53,18 +53,3 @@ def test_login_succesfully(browser):
     login_page.clickLoginButton()
     # verify if login is succesfully, check title
     assert logout_page.getTitlePage() == 'Secure Area', "The title is not correct"
-    sleep(1)
-def test_click_logout_button(browser):
-    login_page = LoginPage(browser)
-    logout_page = LogoutPage(browser)
-    # load the page
-    login_page.loadPage()
-    # input correct username and password
-    login_page.typeUsername("tomsmith")
-    login_page.typePassword("SuperSecretPassword!")
-    login_page.clickLoginButton()
-    sleep(2)
-    # click Logout button
-    logout_page.clickLogoutButton()
-
-    
